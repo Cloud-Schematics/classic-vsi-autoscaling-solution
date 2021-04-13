@@ -5,7 +5,7 @@ module "vms_and_lb"{
   iaas_classic_api_key = var.iaas_classic_api_key
   ssh_key = var.ssh_key
   datacenter = var.datacenter
-  lbaas_member = var.lbaas_name
+  lbaas_name = var.lbaas_name
   instance_count = var.instance_count
 }
 
