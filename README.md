@@ -53,9 +53,9 @@ As illustrated in the following figure, the auto-scale solution can be described
 
 | **Name** | **Description** | **GIT Repo** |
 | --- | --- | --- |
-| vms\_and\_lb | Module used responisbleto for createion theof VMSIs and Loadbalancer | module\_vms\_and\_loadbalancer |
-| cloud\_function | Module responisble used to provision for the cloud function action creation and configuration | module\_cloudfunction\_autoscale\_action |
-| sysdig\_monitoring\_config | Module responsbile used to provision for sysdig monitoring service configurations | module\_sysdig\_config |
+| vms\_and\_lb | Module used to create the VMs and Loadbalancer | module\_vms\_and\_loadbalancer |
+| cloud\_function | Module used to provision cloud function action| module\_cloudfunction\_autoscale\_action |
+| sysdig\_monitoring\_config | Module used to provision monitoring service | module\_sysdig\_config |
 
 ### Inputs
 
@@ -63,20 +63,20 @@ As illustrated in the following figure, the auto-scale solution can be described
 | --- | --- | --- | --- | --- |
 | iaas\_classic\_username | IAAS Classic user name | string | n/a | yes |
 | iaas\_classic\_api\_key | IAAS Classic user API Key | string | n/a | yes |
-| ssh\_key | Nname of the ssh key in classic infrastructure | string | n/a | yes |
-| datacenter | Nname of the dDatacenter to provision the VMs | string | n/a | yes |
-| lbaas\_name | Name of the Load Balancer lbaas instance name&quot; | string | n/a | yes |
-| instance\_count | Number of VMSIs to be provisonedinstances | number | n/a | yes |
-| minimum\_vm\_count | The minimum number of VSIs VMs to be maintained all the time | number | 3 | no |
-| namespace | Cloud Function namespace Name space where cloud function is defined | string | n/a | yes |
-| action\_name | Cloud Ffunction action name | string | &quot;autoscaleaction&quot; | no |
+| ssh\_key | Name of the ssh key in classic infrastructure | string | n/a | yes |
+| datacenter | Name of the datacenter to provision the VMs | string | n/a | yes |
+| lbaas\_name | Name of the Load Balancer | string | n/a | yes |
+| instance\_count | Number of VMs instances | number | n/a | yes |
+| minimum\_vm\_count | The minimum number of VMs to be maintained all the time | number | 3 | no |
+| namespace | Cloud Function namespace | string | n/a | yes |
+| action\_name | Cloud Function action name | string | autoscaleaction | no |
 | api\_key | IAM API Key of the ibmcloud user to perform schematics actions | string | n/a | yes |
-| vm\_count | Default value of VSIVM count for the autoscaling | number | 0 | no |
-| resource\_group\_name | Sysdig rResource group under which SYSDIG is provisionedname. | string | n/a | yes |
-| instance\_name | SYSDIG Sysdig instance name | string | n/a | yes |
-| location | SYSDIG Sysdig instance location | string | n/a | yes |
-| scale\_up\_alert\_name | Alert name for sclaingscaling up the VSIsVMs | string | &quot;lb-load-scale-up-alert&quot; | no |
-| scale\_down\_alert\_name | Alert name for scaling down the VSIsVMs | string | &quot;lb-load-scale-down-alert&quot; | no |
+| vm\_count | VM count for the autoscaling | number | 0 | no |
+| resource\_group\_name | Sysdig resource group name. | string | n/a | yes |
+| instance\_name | Sysdig instance name | string | n/a | yes |
+| location | Sysdig instance location | string | n/a | yes |
+| scale\_up\_alert\_name | Alert name for scaling up the VMs | string | lb-load-scale-up-alert | no |
+| scale\_down\_alert\_name | Alert name for scaling down the VMs | string |lb-load-scale-down-alert | no |
 | scale\_up\_alerts\_config | A list of scale up alert configurations | list(map(string)) | n/a | yes |
 | scaledown\_upper\_threshold | Number of active connections upper threshold for the scale down alert | number | 5 | no |
 | scaledown\_lower\_threshold | Number of active connections lower threshold for the scale down alert | number | 0 | no |
