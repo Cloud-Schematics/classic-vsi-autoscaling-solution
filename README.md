@@ -21,17 +21,17 @@ This monitor-analyze-plan-actuate feedback loop is run in an autonomous mode, wi
 As illustrated in the following figure, the auto-scale solution can be described in two parts:
 
 - Part 1: Initialization – using the auto-scale solution template (in this repository)
-
-1. Provision the VM/VSI &amp; Load Balancer with an initial workspace configuration settings
-2. Provision the Cloud Function services, configure it with the Trigger and Action that will analyze the current state of the VM auto-scale group to initiates the scale-up or scale-down of the VM group.
-3. Provision the Monitoring service (or Sysdig), configure it with threshold-based alerts for the Load Balancer metrics, use a channel to send the up/down alert to Cloud Function
+  
+  1. Provision the VM/VSI &amp; Load Balancer with an initial workspace configuration settings
+  2. Provision the Cloud Function services, configure it with the Trigger and Action that will analyze the current state of the VM auto-scale group to initiates the scale-up or scale-down of the VM group.
+  3. Provision the Monitoring service (or Sysdig), configure it with threshold-based alerts for the Load Balancer metrics, use a channel to send the up/down alert to Cloud Function
 
 - Part 2: Steady-state operations
-
-1. The Monitoring service (Sysdig), monitors the Load Balancer metrics [eg. Number of Active Connection] , and raise the threshold-based alerts
-2. The Monitoring service, raise an up/down alert, which is received by the Cloud Function trigger, to run the Action (a python code)
-3. The Cloud Function action, reads the current state of the VM group, analyses the alerts to refine the workspace configuration settings in Schematics - to scale-up or scale-down the VM group
-4. The Schematics uses the refined workspace configuration setting to actuate the change in the VM group (provision / deprovision VMs).
+  
+  1. The Monitoring service (Sysdig), monitors the Load Balancer metrics [eg. Number of Active Connection] , and raise the threshold-based alerts
+  2. The Monitoring service, raise an up/down alert, which is received by the Cloud Function trigger, to run the Action (a python code)
+  3. The Cloud Function action, reads the current state of the VM group, analyses the alerts to refine the workspace configuration settings in Schematics - to scale-up or scale-down the VM group
+  4. The Schematics uses the refined workspace configuration setting to actuate the change in the VM group (provision / deprovision VMs).
 
 ![plot](./images/autoscale-solution-diagram.png?raw=true])
 
