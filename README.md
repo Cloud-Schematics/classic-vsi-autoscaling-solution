@@ -1,4 +1,4 @@
-# Autoscale the Classic virtual servers VSI on IBM Cloud based on spike in user load
+# Autoscale the Classic VSIs
 
 You can use a simple terraform template (or module) - to provision a group of Virtual Servers (VSI or VM instance) on the IBM Cloud classic infrastructure, with a Load Balancer that can route the incoming traffic to the VM. And, run your application on these VMs.
 
